@@ -6,6 +6,9 @@
   "repository": "https://github.com/ruanyf/node-oauth-demo",
   "author": "Ruan Yifeng",
   "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "koa": "^2.7.0",

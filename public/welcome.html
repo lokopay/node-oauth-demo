@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Hello</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hello</title>
-</head>
+	<body>
+    <img id="avatar" alt="">
+  </body>
+	<script>
+		const name = new URLSearchParams(window.location.search).get(
+			"name"
+		);
 
-<body>
-</body>
-<script>
-const query = window.location.search.substring(1) || '';
-const name = query.split('name=')[1];
-document.body.appendChild(
-  document.createTextNode(`Welcome, ${decodeURIComponent(name)}`)
-);
-</script>
+    const avatar = new URLSearchParams(window.location.search).get(
+			"avatar"
+		);
+		
+		document.body.appendChild(
+			document.createTextNode(`Welcome, ${decodeURIComponent(name)}`)
+		);
 
+    document.querySelector("#avatar").setAttribute("src", decodeURIComponent(avatar))
+	</script>
 </html>

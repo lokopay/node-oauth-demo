@@ -41,11 +41,15 @@ const oauth = async ctx => {
   });
   console.log(result.data);
   const name = result.data.name;
-
-  ctx.response.redirect(`/welcome.html?name=${name}`);
+  const avatarUrl = result.data.avatar_url;
+  
+  ctx.response.redirect(`/welcome.html?name=${name}&avatar=${avatarUrl}`);
+  // in prod, reidrect to a page, then on page mount, another user info request to get the name & avatar
 };
 
 app.use(main);
 app.use(route.get('/oauth/redirect', oauth));
 
 app.listen(8080);
+
+console.log(`app running on http://localhost:8080`)
